@@ -12,7 +12,8 @@ read_bixi <- function(flnm) {
 read_weather <- function(flnm) {
   read_csv(flnm, show_col_types = F) %>% 
     mutate(filename = flnm) %>% 
-    select(1:3,5,10,16,20,30)
+    select(1:2,5,10,16,20,30) %>% 
+    rename(longitude = 1, lattitude = 2, date = 3, temp = 4, precip = 5, wind = 6, weather = 7)
 }
 
 # Import 2022 weather, BIXi, and metro exit data --------------------------
